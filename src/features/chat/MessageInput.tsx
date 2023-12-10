@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { COLORS } from 'src/constants';
 import { styled } from 'styled-components';
 
 const MessageInput = () => {
@@ -46,7 +47,7 @@ const Layout = styled.div`
   height: 80px;
   position: absolute;
   bottom: 0;
-  /* background-color: red; */
+  border-top: 0.5px solid ${COLORS.GRAY_300};
 `;
 
 const InputWrapper = styled.div`

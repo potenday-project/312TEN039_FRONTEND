@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 const UserMessage = ({ message }: { message: string }) => {
   return (
     <Layout>
-      <div>10:11</div>
+      <Time>10:11</Time>
       <MessageLayout>{message}</MessageLayout>
     </Layout>
   );
@@ -20,10 +20,20 @@ const Layout = styled.div`
 `;
 
 const MessageLayout = styled.div`
-  padding: 1rem 1.3rem;
+  padding: 0.8rem 1rem 0.8rem 1.3rem;
   max-width: 16em;
   background-color: ${COLORS.GRAY_500};
   color: ${COLORS.WHITE};
-  border-radius: 18px 0px 18px 18px;
+  border-radius: 1.5rem 0px 1.5rem 1.5rem;
   word-wrap: break-word;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+`;
+
+const Time = styled.div`
+  color: ${COLORS.DARK};
+  opacity: 0.4;
+  font-size: 11px;
 `;

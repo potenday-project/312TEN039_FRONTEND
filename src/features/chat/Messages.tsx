@@ -91,7 +91,7 @@ const Layout = styled.div`
   width: 100%;
   height: calc(100% - 80px);
   padding: 1rem 1.2rem;
-  gap: 0.8rem;
+  gap: 0.6rem;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
