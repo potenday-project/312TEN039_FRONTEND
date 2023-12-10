@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import PREV_ICON from 'src/assets/icon/prev.svg';
 import { COLORS } from 'src/constants';
 import { MessageInput, Messages } from 'src/features/chat';
 import { styled } from 'styled-components';
@@ -14,7 +15,7 @@ function ChatPage() {
     <div>
       <PageHeader>
         <BackButton onClick={moveBackPage}>
-          <img src="src/assets/icon/prev.svg" alt="prev_icon" />
+          <img src={PREV_ICON} alt="prev_icon" />
         </BackButton>
         <Title>푸바오와 채팅</Title>
         <Profile>

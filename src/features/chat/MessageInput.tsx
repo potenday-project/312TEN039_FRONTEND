@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import SEND_ICON from 'src/assets/icon/send.svg';
 import { COLORS } from 'src/constants';
 import { styled } from 'styled-components';
 
@@ -32,7 +33,7 @@ const MessageInput = () => {
           onKeyDown={keyDownHandler}
         />
         <Button onClick={sendMessage}>
-          <img src="src/assets/icon/send.svg" alt="send_icon" />
+          <img src={SEND_ICON} alt="send_icon" />
         </Button>
       </InputWrapper>
     </Layout>

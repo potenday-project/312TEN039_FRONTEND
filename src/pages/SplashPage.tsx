@@ -1,3 +1,4 @@
+import KAKAO_ICON from 'src/assets/icon/kakao.svg';
 import { COLORS, KAKAO_LOGIN_URL } from 'src/constants';
 import { styled } from 'styled-components';
 
@@ -17,7 +18,7 @@ const SplashPage = () => {
       <BottomButtonWrapper>
         <KakaoButton onClick={onClickKakaoLogin}>
           <ImageWrapper>
-            <img src="src/assets/icon/kakao.svg" alt="kakao_login" />
+            <img src={KAKAO_ICON} alt="kakao_login" />
           </ImageWrapper>
           카카오로 시작하기
         </KakaoButton>
