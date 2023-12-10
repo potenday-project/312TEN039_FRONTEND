@@ -13,7 +13,9 @@ function ChatPage() {
   return (
     <div>
       <PageHeader>
-        <BackButton onClick={moveBackPage}>뒤</BackButton>
+        <BackButton onClick={moveBackPage}>
+          <img src="src/assets/icon/prev.svg" alt="prev_icon" />
+        </BackButton>
         <Title>푸바오와 채팅</Title>
         <Profile>
           <Image src="" alt="profile_img" />
@@ -37,7 +39,8 @@ const PageHeader = styled.div`
   align-items: center;
   padding: 0.6rem 1.2rem;
   width: 100%;
-  height: 44px;
+  height: 58px;
+  border-bottom: 0.5px solid ${COLORS.GRAY_300};
 `;
 
 const BackButton = styled.div`
@@ -82,5 +85,5 @@ const StateBox = styled.div`
 
 const PageBody = styled.div`
   position: relative;
-  height: calc(100vh - 44px);
+  height: calc(100vh - 58px);
 `;
