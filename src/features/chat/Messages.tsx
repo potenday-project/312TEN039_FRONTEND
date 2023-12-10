@@ -75,11 +75,11 @@ const Messages = () => {
 
   return (
     <Layout ref={messagesContainerRef}>
-      {messages.map(message => {
+      {messages.map((message, index: number) => {
         if (message.sender === 'bao') {
-          return <BaoMessage message={message.message} />;
+          return <BaoMessage message={message.message} key={index} />;
         }
-        return <UserMessage message={message.message} />;
+        return <UserMessage message={message.message} key={index} />;
       })}
     </Layout>
   );

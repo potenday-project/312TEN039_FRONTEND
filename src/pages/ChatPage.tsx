@@ -54,7 +54,10 @@ const BackButton = styled.div`
   cursor: pointer;
 `;
 
-const Title = styled.div``;
+const Title = styled.div`
+  font-weight: 600;
+  color: ${COLORS.GRAY_900};
+`;
 
 const Profile = styled.div`
   position: absolute;
