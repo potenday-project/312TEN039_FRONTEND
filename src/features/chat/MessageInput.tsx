@@ -30,7 +30,9 @@ const MessageInput = () => {
           onChange={e => setMessage(e.target.value)}
           onKeyDown={keyDownHandler}
         />
-        <Button onClick={sendMessage}>PU</Button>
+        <Button onClick={sendMessage}>
+          <img src="src/assets/icon/send.svg" alt="send_icon" />
+        </Button>
       </InputWrapper>
     </Layout>
   );
