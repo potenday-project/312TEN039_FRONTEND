@@ -1,4 +1,6 @@
 export const ROUTES = {
-  MAIN: '/',
+  SPLASH: '/',
+  MAIN: '/main',
   CHAT: '/chat',
+  CALLBACK_KAKAO: '/callback/kakao',
 } as const;
