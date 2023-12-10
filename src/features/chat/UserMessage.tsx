@@ -21,7 +21,7 @@ const Layout = styled.div`
 
 const MessageLayout = styled.div`
   padding: 1rem 1.3rem;
-  max-width: 20rem;
+  max-width: 16em;
   background-color: ${COLORS.GRAY_500};
   color: ${COLORS.WHITE};
   border-radius: 18px 0px 18px 18px;
