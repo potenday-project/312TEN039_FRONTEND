@@ -58,7 +58,7 @@ const InputWrapper = styled.div`
   border-radius: 99px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   background: #fafafa;
-  font-size: 18px;
+  font-size: 14px;
   padding: 0 45px 0 20px;
 `;
 

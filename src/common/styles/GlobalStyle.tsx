@@ -7,8 +7,7 @@ const GlobalStyle = createGlobalStyle`
   font-weight: 45 920;
   font-style: normal;
   font-display: swap;
-  
-  src: url("src/assets/font/PretendardVariable.woff2") format("woff2-variations");
+  src: url("/src/assets/font/PretendardVariable.woff2") format("woff2-variations");
 }
 
 html{
