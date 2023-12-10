@@ -9,6 +9,7 @@ import RouteChangeTracker from './libs/analytics/RouteChangeTracker';
 import CallbackKakao from './pages/CallbackKakao';
 import ChatPage from './pages/ChatPage';
 import MainPage from './pages/MainPage';
+import RollingPaper from './pages/RollingPaper';
 import SplashPage from './pages/SplashPage';
 
 const App = () => {
@@ -38,6 +39,14 @@ const App = () => {
           element: (
             <Suspense fallback={<div>loading...</div>}>
               <ChatPage />
+            </Suspense>
+          ),
+        },
+        {
+          path: ROUTES.ROLLING_PAPER,
+          element: (
+            <Suspense fallback={<div>loading...</div>}>
+              <RollingPaper />
             </Suspense>
           ),
         },

@@ -17,7 +17,7 @@ const SplashPage = () => {
       <BottomButtonWrapper>
         <KakaoButton onClick={onClickKakaoLogin}>
           <ImageWrapper>
-            <img src="/images/kakao_login.png" alt="kakao_login" />
+            <img src="src/assets/icon/kakao.svg" alt="kakao_login" />
           </ImageWrapper>
           카카오로 시작하기
         </KakaoButton>
@@ -64,6 +64,8 @@ const BottomButtonWrapper = styled.div`
   margin: 0.6rem 1.2rem 2.4rem 1.2rem;
   bottom: 0;
   width: calc(100% - 2.4rem);
+  font-size: 17px;
+  font-weight: 600;
 `;
 
 const KakaoButton = styled.div`
