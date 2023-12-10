@@ -29,7 +29,8 @@ h3{
 }
 body{
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 400;
+    line-height: 20px; 
 }
 `;
 
