@@ -123,5 +123,4 @@ const StartButton = styled.div`
   color: ${COLORS.WHITE};
   font-size: 17px;
   font-weight: 600;
-  /* gap: 0.5rem; */
 `;
