@@ -89,5 +89,5 @@ const Title = styled.div`
 
 const PageBody = styled.div`
   position: relative;
-  height: calc(100vh - 58px);
+  height: calc(${window.innerHeight}px - 58px);
 `;
