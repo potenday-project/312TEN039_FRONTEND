@@ -55,7 +55,7 @@ const Layout = styled.div`
 const InputWrapper = styled.div`
   position: relative;
   display: flex;
-  height: 100%;
+  height: 44px;
   border-radius: 99px;
   /* border: 1px solid rgba(0, 0, 0, 0.5); */
   background: ${COLORS.WHITE};
@@ -80,6 +80,5 @@ const Button = styled.div`
   transform: translateY(-50%);
   width: 26px;
   height: 26px;
-  /* background-color: red; */
   cursor: pointer;
 `;

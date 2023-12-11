@@ -18,10 +18,6 @@ function ChatPage() {
           <img src={PREV_ICON} alt="prev_icon" />
         </BackButton>
         <Title>푸바오와 채팅</Title>
-        <Profile>
-          <Image src="" alt="profile_img" />
-          <StateBox></StateBox>
-        </Profile>
       </PageHeader>
       <PageBody>
         <Messages />
@@ -63,33 +59,33 @@ const Title = styled.div`
   color: ${COLORS.GRAY_900};
 `;
 
-const Profile = styled.div`
-  position: absolute;
-  right: 1.2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background-color: ${COLORS.GRAY_500};
-`;
+// const Profile = styled.div`
+//   position: absolute;
+//   right: 1.2rem;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   width: 34px;
+//   height: 34px;
+//   border-radius: 50%;
+//   background-color: ${COLORS.GRAY_500};
+// `;
 
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-`;
+// const Image = styled.img`
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+//   border-radius: 50%;
+// `;
 
-const StateBox = styled.div`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: green;
-`;
+// const StateBox = styled.div`
+//   position: absolute;
+//   bottom: 0;
+//   right: 0;
+//   width: 10px;
+//   height: 10px;
+//   border-radius: 50%;
+//   background-color: green;
+// `;
 
 const PageBody = styled.div`
   position: relative;

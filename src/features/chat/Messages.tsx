@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
+import { COLORS } from 'src/constants';
 import { styled } from 'styled-components';
 
 import BaoMessage from './BaoMessage';
@@ -74,13 +75,15 @@ const Messages = () => {
   }, [messages.length, scrollHeight]);
 
   return (
-    <Layout ref={messagesContainerRef}>
-      {messages.map((message, index: number) => {
-        if (message.sender === 'bao') {
-          return <BaoMessage message={message.message} key={index} />;
-        }
-        return <UserMessage message={message.message} key={index} />;
-      })}
+    <Layout>
+      <MassagesLayout ref={messagesContainerRef}>
+        {messages.map((message, index: number) => {
+          if (message.sender === 'bao') {
+            return <BaoMessage message={message.message} key={index} />;
+          }
+          return <UserMessage message={message.message} key={index} />;
+        })}
+      </MassagesLayout>
     </Layout>
   );
 };
@@ -90,9 +93,22 @@ export default Messages;
 const Layout = styled.div`
   width: 100%;
   height: calc(100% - 80px);
-  padding: 1rem 1.2rem;
+  padding: 0 0.2rem;
+  display: flex;
+  flex-direction: column;
+`;
+
+const MassagesLayout = styled.div`
+  padding: 1rem;
   gap: 0.6rem;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: ${COLORS.PRIMARY_400};
+    border-radius: 6px;
+  }
 `;
