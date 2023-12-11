@@ -1,13 +1,18 @@
+import styled from 'styled-components';
+
+import { Sub } from '.';
+
 const Calendar = () => {
   return (
-    <div>
-      <div>월간 푸바오</div>
-      <div>
-        <div>푸바오 생일</div>
-        <div>D-223</div>
-      </div>
-    </div>
+    <Layout>
+      <Sub title="푸바오 생일" note="푸바오의 생일을 축하해 주세요!" day={true} />
+    </Layout>
   );
 };
 
 export default Calendar;
+
+const Layout = styled.div`
+  width: 100%;
+  background-color: white;
+`;

@@ -1,7 +1,6 @@
 export { default as Header } from './Header';
 export { default as ChatBox } from './ChatBox';
-export { default as Calendar } from './Calendar';
 export { default as Merch } from './Merch';
 export { default as Sub } from './Sub';
 export { default as RollingPaperBox } from './RollingPaperBox';
-export { default as Calender } from './Calender';
+export { default as Calendar } from './Calendar';

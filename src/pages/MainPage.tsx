@@ -1,7 +1,7 @@
 import { COLORS } from 'src/constants';
 import styled from 'styled-components';
 
-import { Header, ChatBox, Merch, RollingPaperBox, Calender } from '../features/main';
+import { Header, ChatBox, Merch, RollingPaperBox, Calendar } from '../features/main';
 
 function MainPage() {
   return (
@@ -13,7 +13,7 @@ function MainPage() {
         <ChatBox />
         <SubLayout>
           <RollingPaperBox />
-          <Calender />
+          <Calendar />
         </SubLayout>
         <Merch />
       </PageBody>
