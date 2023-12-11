@@ -46,7 +46,7 @@ export default CallbackKakao;
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  position: relative;
+  /* position: relative; */
 `;
 
 const SplashText = styled.div`
@@ -123,5 +123,4 @@ const StartButton = styled.div`
   color: ${COLORS.WHITE};
   font-size: 17px;
   font-weight: 600;
-  /* gap: 0.5rem; */
 `;
