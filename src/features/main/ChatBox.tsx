@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router';
+import PUBAO_PROFILE from 'src/assets/img/baoProfile.jpg';
 import { COLORS, ROUTES } from 'src/constants';
 import styled from 'styled-components';
 
@@ -11,7 +12,7 @@ const ChatBox = () => {
   return (
     <ChatBoxLayout>
       <Profile>
-        <Image src="src/assets/img/baoProfile.jpg" alt="푸바오 사진" />
+        <Image src={PUBAO_PROFILE} alt="푸바오 사진" />
         <StateBox></StateBox>
       </Profile>
 
