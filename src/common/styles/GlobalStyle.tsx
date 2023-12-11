@@ -11,6 +11,12 @@ const GlobalStyle = createGlobalStyle`
   font-display: swap;
   src: url(${PRETEND_FONT}) format("woff2-variations");
 }
+@font-face {
+    font-family: 'AndongKaturi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/Katuri.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 html{
     font-family: "Pretendard";
