@@ -1,3 +1,4 @@
+import { ToastContainer } from 'react-toastify';
 import { COLORS } from 'src/constants';
 import styled from 'styled-components';
 
@@ -17,6 +18,13 @@ function MainPage() {
         </SubLayout>
         <Merch />
       </PageBody>
+      <ToastContainer
+        position="bottom-center"
+        toastStyle={{
+          backgroundColor: 'green',
+        }}
+        limit={1}
+      />
     </MainLayout>
   );
 }

@@ -2,8 +2,7 @@ import { useNavigate } from 'react-router';
 import { ROUTES } from 'src/constants';
 import styled from 'styled-components';
 
-import { Sub } from '.';
-
+import Sub from './Sub';
 
 const RollingPaperBox = () => {
   const navigate = useNavigate();
