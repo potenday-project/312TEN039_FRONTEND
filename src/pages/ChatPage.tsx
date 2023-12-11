@@ -31,6 +31,15 @@ export default ChatPage;
 
 const Layout = styled.div`
   background-color: ${COLORS.PRIMARY_50};
+  overflow: hidden;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  -webkit-scrollbar {
+    display: none;
+    width: 0; /* Remove scrollbar space */
+    height: 0;
+    background: transparent; /* Optional: just make scrollbar invisible */
+  }
 `;
 
 const PageHeader = styled.div`
