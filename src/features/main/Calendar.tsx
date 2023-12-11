@@ -15,7 +15,7 @@ const Calendar = () => {
         title="푸바오 생일"
         note="푸바오의 생일을 
       축하해 주세요!"
-        day={true}
+        calendar={true}
       />
     </Layout>
   );
