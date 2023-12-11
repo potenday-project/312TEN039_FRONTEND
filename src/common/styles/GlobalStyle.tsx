@@ -1,7 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
 import './reset.css';
 import PRETEND_FONT from 'src/assets/font/PretendardVariable.woff2';
 import { COLORS } from 'src/constants';
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
