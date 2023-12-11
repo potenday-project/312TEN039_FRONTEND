@@ -1,7 +1,8 @@
+import { Toaster } from 'react-hot-toast';
 import { COLORS } from 'src/constants';
 import styled from 'styled-components';
 
-import { Header, ChatBox, Merch, RollingPaperBox, Calender } from '../features/main';
+import { Header, ChatBox, Merch, RollingPaperBox, Calendar } from '../features/main';
 
 function MainPage() {
   return (
@@ -13,10 +14,11 @@ function MainPage() {
         <ChatBox />
         <SubLayout>
           <RollingPaperBox />
-          <Calender />
+          <Calendar />
         </SubLayout>
         <Merch />
       </PageBody>
+      <Toaster position="bottom-center" reverseOrder={false} />
     </MainLayout>
   );
 }
@@ -38,3 +40,13 @@ const SubLayout = styled.div`
   justify-content: space-between;
   gap: 17px;
 `;
+
+// export const Container = styled(Toaster)`
+//   .Toastify__toast {
+//     font-size: 16px;
+//     border-radius: 5px;
+//     padding: 16px 28px;
+//     color: #fff;
+//     background: rgba(48, 173, 120, 0.8);
+//   }
+// `;
