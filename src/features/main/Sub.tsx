@@ -41,7 +41,7 @@ const ImgLayout = styled.div`
 `;
 
 const SubContent = styled.div`
-  margin-left: 15px;
+  margin: 8px 15px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -57,9 +57,12 @@ const SubTitlt = styled.h2`
 
 const DDay = styled.div`
   font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #ffae11;
   border-radius: 4px;
-  padding: 3px;
+  padding: 2px 3px;
   color: white;
 `;
 
@@ -67,4 +70,5 @@ const SubNote = styled.span`
   display: inline-block;
   color: ${COLORS.GRAY_300};
   font-size: 14px;
+  width: 104px;
 `;
