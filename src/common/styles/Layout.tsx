@@ -26,10 +26,12 @@ const PageLayout = styled.div`
   min-height: 100vh;
   background-color: ${COLORS.WHITE};
   box-shadow: 0px 0px 16px rgb(50 50 50 / 12%);
-  overflow: hidden;
+
   > * {
     width: 100%;
-    height: calc(${window.innerHeight}px);
+    height: 100%;
+    overflow: hidden;
+    /* height: calc(${window.innerHeight}px); */
     display: flex;
     flex-direction: column;
   }

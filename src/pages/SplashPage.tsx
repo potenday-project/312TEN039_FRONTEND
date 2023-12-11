@@ -32,7 +32,7 @@ export default SplashPage;
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  position: relative;
+  /* position: relative; */
 `;
 
 const MainContainer = styled.div`

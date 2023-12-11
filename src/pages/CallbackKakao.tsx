@@ -46,7 +46,7 @@ export default CallbackKakao;
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  position: relative;
+  /* position: relative; */
 `;
 
 const SplashText = styled.div`
