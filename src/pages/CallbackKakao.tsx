@@ -29,8 +29,10 @@ const CallbackKakao = () => {
         <MainImageWrapper>
           <Image src="" alt="profile_img" />
         </MainImageWrapper>
-        <Nickname>푸덕이 짱짱</Nickname>
-        <div>닉네임으로 활동하게 될 거예요</div>
+        <MainTexts>
+          <Nickname>푸덕이 짱짱</Nickname>
+          <div>닉네임으로 활동하게 될 거예요</div>
+        </MainTexts>
       </MainContainer>
       <BottomButtonWrapper>
         <StartButton onClick={moveMainPage}>시작할래요!</StartButton>
@@ -44,20 +46,25 @@ export default CallbackKakao;
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  position: relative;
+  /* position: relative; */
 `;
 
 const SplashText = styled.div`
   position: absolute;
   top: 10%;
   left: 5%;
+  color: ${COLORS.GRAY_900};
+  font-size: 34px;
+  font-weight: 700;
+  line-height: normal;
 `;
 
 const MainContainer = styled.div`
   position: absolute;
-  top: 18rem;
+  top: 45%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,12 +85,22 @@ const Image = styled.img`
   background-color: ${COLORS.GRAY_400};
 `;
 
+const MainTexts = styled.div`
+  position: absolute;
+  top: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: ${COLORS.GRAY_900};
+  font-size: 18px;
+  font-weight: 600;
+`;
+
 const Nickname = styled.div`
-  margin-top: 1.5rem;
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 600;
   text-align: center;
-  color: green;
+  color: ${COLORS.PRIMARY_500};
 `;
 
 const BottomButtonWrapper = styled.div`
@@ -96,12 +113,14 @@ const BottomButtonWrapper = styled.div`
 const StartButton = styled.div`
   width: 100%;
   height: 58px;
-  background-color: ${COLORS.GRAY_400};
+  background-color: ${COLORS.PRIMARY_500};
   border-radius: 10px;
   border: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* gap: 0.5rem; */
+  color: ${COLORS.WHITE};
+  font-size: 17px;
+  font-weight: 600;
 `;
