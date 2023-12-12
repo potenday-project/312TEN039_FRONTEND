@@ -1,10 +1,14 @@
+import { useState } from 'react';
+
 import { useNavigate } from 'react-router';
+import PREV_WHITE_ICON from 'src/assets/icon/prev-white.svg';
 import PREV_ICON from 'src/assets/icon/prev.svg';
 import { COLORS } from 'src/constants';
 import { RMessageInput, RMessages } from 'src/features/rolling-paper';
 import styled from 'styled-components';
 
 const RollingPaper = () => {
+  const [inputState, setInputState] = useState(true);
   const navigate = useNavigate();
 
   const moveBackPage = () => {
@@ -13,15 +17,24 @@ const RollingPaper = () => {
 
   return (
     <Layout>
-      <PageHeader>
-        <BackButton onClick={moveBackPage}>
-          <img src={PREV_ICON} alt="prev_icon" />
-        </BackButton>
-        <Title>언제나 널 생각해</Title>
-      </PageHeader>
-      <PageBody>
+      {inputState ? (
+        <PageHeader inputState={inputState}>
+          <BackButton onClick={moveBackPage}>
+            <img src={PREV_WHITE_ICON} alt="prev_white_icon" />
+          </BackButton>
+          <Title>언제나 널 생각해</Title>
+        </PageHeader>
+      ) : (
+        <PageHeader inputState={inputState}>
+          <BackButton onClick={moveBackPage}>
+            <img src={PREV_ICON} alt="prev_icon" />
+          </BackButton>
+          <Title>언제나 널 생각해</Title>
+        </PageHeader>
+      )}
+      <PageBody inputState={inputState}>
         <RMessages />
-        <RMessageInput />
+        <RMessageInput setInputState={setInputState} />
       </PageBody>
     </Layout>
   );
@@ -33,13 +46,16 @@ const Layout = styled.div`
   background-color: ${COLORS.SECONDARY_50};
 `;
 
-const PageHeader = styled.div`
+const PageHeader = styled.div<{ inputState: boolean }>`
+  background-image: ${props => props.inputState && `url(src/assets/img/rolling-img.jpg)`};
+  background-size: 100%;
+  color: ${props => (props.inputState ? '#ffffff' : `${COLORS.GRAY_900}`)};
   display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 55px;
+  height: ${props => (props.inputState ? '204px' : '55px')};
 `;
 
 const BackButton = styled.div`
@@ -54,10 +70,9 @@ const BackButton = styled.div`
 
 const Title = styled.div`
   font-weight: 600;
-  color: ${COLORS.GRAY_900};
 `;
 
-const PageBody = styled.div`
+const PageBody = styled.div<{ inputState: boolean }>`
   position: relative;
-  height: calc(100vh - 55px);
+  height: ${props => (props.inputState ? `calc(100vh - 204px)` : `calc(100vh - 55px)`)};
 `;

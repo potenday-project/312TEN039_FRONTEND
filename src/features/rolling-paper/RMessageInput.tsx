@@ -4,7 +4,11 @@ import SEND_ICON from 'src/assets/icon/send.svg';
 import { COLORS } from 'src/constants';
 import styled from 'styled-components';
 
-const RMessageInput = () => {
+interface IProps {
+  setInputState: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const RMessageInput = ({ setInputState }: IProps) => {
   const [message, setMessage] = useState('');
 
   const keyDownHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -25,7 +29,14 @@ const RMessageInput = () => {
   return (
     <Layout>
       <InputWrapper>
-        <Input type="text" value={message} onChange={e => setMessage(e.target.value)} onKeyDown={keyDownHandler} />
+        <Input
+          type="text"
+          value={message}
+          onChange={e => setMessage(e.target.value)}
+          onKeyDown={keyDownHandler}
+          onFocus={() => setInputState(false)}
+          onBlur={() => setInputState(true)}
+        />
         <Button onClick={sendMessage}>
           <img src={SEND_ICON} alt="send_icon" />
         </Button>
