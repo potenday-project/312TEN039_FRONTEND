@@ -2,9 +2,13 @@ import { Toaster } from 'react-hot-toast';
 import { COLORS } from 'src/constants';
 import styled from 'styled-components';
 
-import { Header, ChatBox, Merch, RollingPaperBox, Calendar } from '../features/main';
+import { Header, ChatBox, RollingPaperBox, Calendar } from '../features/main';
 
 function MainPage() {
+  const onClickBaoMerch = () => {
+    window.location.href = `https://brand.naver.com/everland/category/5f55be35cdbd4bad809c6ff564cef5ac?cp=1`;
+  };
+
   return (
     <MainLayout>
       <PageHeader>
@@ -16,7 +20,10 @@ function MainPage() {
           <RollingPaperBox />
           <Calendar />
         </SubLayout>
-        <Merch />
+        <Merch onClick={onClickBaoMerch}>
+          바오네 공식 스토어
+          <img src={'src/assets/icon/link.svg'} alt="link_icon" />
+        </Merch>
       </PageBody>
       <Toaster position="bottom-center" reverseOrder={false} />
     </MainLayout>
@@ -39,6 +46,19 @@ const SubLayout = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 17px;
+`;
+
+const Merch = styled.h2`
+  display: flex;
+  height: 61px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 10%);
+  border-radius: 10px;
+  margin-top: 18px;
+  gap: 6px;
+  background-color: white;
+  cursor: pointer;
 `;
 
 // export const Container = styled(Toaster)`
