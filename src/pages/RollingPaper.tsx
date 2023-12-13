@@ -18,10 +18,12 @@ const RollingPaper = () => {
   return (
     <Layout>
       <PageHeader inputState={inputState}>
-        <BackButton onClick={moveBackPage}>
-          {inputState ? <img src={PREV_WHITE_ICON} alt="prev_white_icon" /> : <img src={PREV_ICON} alt="prev_icon" />}
-        </BackButton>
-        <Title>언제나 널 생각해</Title>
+        <HeaderContent>
+          <BackButton onClick={moveBackPage}>
+            {inputState ? <img src={PREV_WHITE_ICON} alt="prev_white_icon" /> : <img src={PREV_ICON} alt="prev_icon" />}
+          </BackButton>
+          <Title>언제나 널 생각해</Title>
+        </HeaderContent>
       </PageHeader>
       <PageBody inputState={inputState}>
         <RMessages />
@@ -47,19 +49,25 @@ const Layout = styled.div`
 `;
 
 const PageHeader = styled.div<{ inputState: boolean }>`
-  background-image: ${props => props.inputState && `url(src/assets/img/rolling-img.jpg)`};
-  background-size: 100%;
+  background-image: ${props => props.inputState && `url(src/assets/icon/cover.svg)`};
+  background-size: auto;
   color: ${props => (props.inputState ? '#ffffff' : `${COLORS.GRAY_900}`)};
   display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: ${props => (props.inputState ? '204px' : '55px')};
+  height: ${props => (props.inputState ? '204px' : '88px')};
   transition:
     height 0.3s ease-in-out,
     background-image 0.3s ease-in-out,
     color 0.3s ease-in-out;
+`;
+
+const HeaderContent = styled.div`
+  position: absolute;
+  top: 49px;
+  width: 100%;
 `;
 
 const BackButton = styled.div`
@@ -73,11 +81,15 @@ const BackButton = styled.div`
 `;
 
 const Title = styled.div`
+  position: absolute;
   font-weight: 600;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
 `;
 
 const PageBody = styled.div<{ inputState: boolean }>`
   position: relative;
-  height: ${props => (props.inputState ? `calc(100vh - 204px)` : `calc(100vh - 55px)`)};
+  height: ${props => (props.inputState ? `calc(100vh - 204px)` : `calc(100vh - 88px)`)};
   transition: height 0.3s ease-in-out;
 `;
