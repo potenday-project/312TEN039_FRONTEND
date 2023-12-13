@@ -43,7 +43,10 @@ const RMessages = () => {
           if (message.sender === 'user') {
             return <RUserMassage message={message} key={index} />;
           }
-          return <ROtherMassage message={message} key={index} />;
+          if (index !== 0 && rollingPaperState.messages[index - 1].sender === message.sender) {
+            return <ROtherMassage message={message} key={index} sameUser={true} />;
+          }
+          return <ROtherMassage message={message} key={index} sameUser={false} />;
         })}
       </MassagesLayout>
     </Layout>
