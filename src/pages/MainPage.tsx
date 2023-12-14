@@ -57,8 +57,12 @@ const Merch = styled.h2`
   border-radius: 10px;
   margin-top: 18px;
   gap: 6px;
-  background-color: white;
   cursor: pointer;
+  background-color: #ffffff;
+
+  &:hover {
+    background-color: #f7f7f7f7;
+  }
 `;
 
 // export const Container = styled(Toaster)`
