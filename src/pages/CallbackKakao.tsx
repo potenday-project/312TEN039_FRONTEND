@@ -39,7 +39,7 @@ const CallbackKakao = () => {
           <Image src={CALLBACK_IMG} alt="profile_img" />
         </MainImageWrapper>
         <MainTexts>
-          <Nickname>{authState.randomName} 짱짱</Nickname>
+          <Nickname>{authState.randomName}</Nickname>
           <div>닉네임으로 활동하게 될 거예요</div>
         </MainTexts>
       </MainContainer>
