@@ -1,4 +1,5 @@
 import { Toaster } from 'react-hot-toast';
+import LINK_ICON from 'src/assets/icon/link.svg';
 import { COLORS } from 'src/constants';
 import styled from 'styled-components';
 
@@ -22,7 +23,7 @@ function MainPage() {
         </SubLayout>
         <Merch onClick={onClickBaoMerch}>
           바오네 공식 스토어
-          <img src={'src/assets/icon/link.svg'} alt="link_icon" />
+          <img src={LINK_ICON} alt="link_icon" />
         </Merch>
       </PageBody>
       <Toaster position="bottom-center" reverseOrder={false} />
