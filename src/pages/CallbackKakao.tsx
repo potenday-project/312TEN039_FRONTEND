@@ -1,12 +1,16 @@
 import { useEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 import { COLORS, ROUTES } from 'src/constants';
+import { kakaoLogin } from 'src/features/auth/service';
+import { IAuthStore, authStore } from 'src/features/auth/store';
 import { styled } from 'styled-components';
 
 const CallbackKakao = () => {
   const code = new URL(window.location.href).searchParams.get('code');
   const navigate = useNavigate();
+  const [authState, setAuthState] = useRecoilState(authStore);
 
   const moveMainPage = () => {
     navigate(ROUTES.MAIN);
@@ -14,10 +18,14 @@ const CallbackKakao = () => {
 
   useEffect(() => {
     if (code) {
-      // TODO: backend에 code 전달
-      console.log(code);
+      kakaoLogin(code).then((res: unknown) => {
+        res &&
+          setAuthState({
+            ...(res as IAuthStore),
+          });
+      });
     }
-  }, [code, navigate]);
+  }, [authState, code, setAuthState]);
 
   return (
     <Layout>
@@ -30,7 +38,7 @@ const CallbackKakao = () => {
           <Image src="" alt="profile_img" />
         </MainImageWrapper>
         <MainTexts>
-          <Nickname>푸덕이 짱짱</Nickname>
+          <Nickname>{authState.randomName} 짱짱</Nickname>
           <div>닉네임으로 활동하게 될 거예요</div>
         </MainTexts>
       </MainContainer>
@@ -123,5 +131,4 @@ const StartButton = styled.div`
   color: ${COLORS.WHITE};
   font-size: 17px;
   font-weight: 600;
-  /* gap: 0.5rem; */
 `;
