@@ -17,10 +17,10 @@ const Sub = ({ title, note, calendar }: { title: string; note: string; calendar:
         </ImgLayout>
       </ImgBox>
       <SubContent>
-        <SubTitlt>
+        <SubTitle>
           {title}
           {calendar && <DDay>D-{result}</DDay>}
-        </SubTitlt>
+        </SubTitle>
         <SubNote calendar={calendar}>{note}</SubNote>
       </SubContent>
     </SubLayout>
@@ -65,7 +65,7 @@ const SubContent = styled.div`
   gap: 4px;
 `;
 
-const SubTitlt = styled.h2`
+const SubTitle = styled.h2`
   display: inline-block;
   color: ${COLORS.GRAY_900};
   display: flex;
