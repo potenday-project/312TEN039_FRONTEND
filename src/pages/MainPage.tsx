@@ -34,9 +34,18 @@ function MainPage() {
 export default MainPage;
 
 const MainLayout = styled.div`
-  height: 100vh;
-  padding: 0px 16px;
+  height: calc(var(--vh, 1vh) * 100);
+  padding: 0 1rem 0 1.2rem;
+  padding-bottom: 2rem;
   background-color: ${COLORS.PRIMARY_50};
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 0.2rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: ${COLORS.PRIMARY_400};
+    border-radius: 6px;
+  }
 `;
 
 const PageHeader = styled.div``;
