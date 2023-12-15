@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { useNavigate } from 'react-router';
+import COVER_BACKGROUND from 'src/assets/icon/cover.svg';
 import PREV_WHITE_ICON from 'src/assets/icon/prev-white.svg';
 import PREV_ICON from 'src/assets/icon/prev.svg';
 import { COLORS } from 'src/constants';
@@ -49,7 +50,7 @@ const Layout = styled.div`
 `;
 
 const PageHeader = styled.div<{ inputState: boolean }>`
-  background-image: ${props => props.inputState && `url(src/assets/icon/cover.svg)`};
+  background-image: ${props => props.inputState && `url(${COVER_BACKGROUND})`};
   background-size: auto;
   color: ${props => (props.inputState ? '#ffffff' : `${COLORS.GRAY_900}`)};
   display: flex;
@@ -90,6 +91,6 @@ const Title = styled.div`
 
 const PageBody = styled.div<{ inputState: boolean }>`
   position: relative;
-  height: ${props => (props.inputState ? `calc(100vh - 204px)` : `calc(100vh - 88px)`)};
+  height: ${props => (props.inputState ? `calc(var(--vh, 1vh) * 100 - 204px)` : `calc(var(--vh, 1vh) * 100 - 88px)`)};
   transition: height 0.3s ease-in-out;
 `;
