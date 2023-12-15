@@ -1,4 +1,4 @@
-import { Storage } from '/storage';
+import { Storage } from 'src/storage';
 
 export class HttpClientImplement {
   private baseURL: string;
