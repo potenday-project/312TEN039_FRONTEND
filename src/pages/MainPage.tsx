@@ -34,8 +34,9 @@ function MainPage() {
 export default MainPage;
 
 const MainLayout = styled.div`
-  height: 100vh;
+  /* height: 100vh; */
   padding: 0px 16px;
+  padding-bottom: 2rem;
   background-color: ${COLORS.PRIMARY_50};
 `;
 
