@@ -10,16 +10,15 @@ interface IResponsePostMessage {
   assiChatTime: string[];
   userChatTime: string;
 }
-export const postMessage = async (memberId: number, message: string): Promise<IResponsePostMessage | undefined> => {
+export const postMessage = async (memberId: number, message: string): Promise<IResponsePostMessage> => {
   try {
     const response = await axios.post(`${URLS.CHAT}/${memberId}`, {
       message,
     });
-    if (response) {
-      return response.data.data;
-    }
+    return response.data.data;
   } catch (error) {
     console.error(error);
+    throw error;
   }
 };
 
@@ -32,7 +31,7 @@ export const getMessageList = async (
   memberId: number,
   lastChatId: number,
   size = 10
-): Promise<IResponseGetMessageList | undefined> => {
+): Promise<IResponseGetMessageList> => {
   try {
     const response = await axios.get(`${URLS.CHAT_LIST}/${memberId}`, {
       params: {
@@ -43,6 +42,7 @@ export const getMessageList = async (
     return response.data.data;
   } catch (error) {
     console.error(error);
+    throw error;
   }
 };
 
