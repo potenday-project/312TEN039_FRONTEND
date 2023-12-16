@@ -13,14 +13,14 @@ const Sub = ({ title, note, calendar }: { title: string; note: string; calendar:
     <SubLayout>
       <ImgBox>
         <ImgLayout calendar={calendar}>
-          {calendar ? <img src={CALENDAR_ICON} alt="calendarIcon" /> : <img src={ROLLING_ICON} alt="rollingIcon" />}
+          {calendar ? <img src={CALENDAR_ICON} alt="calendar Icon" /> : <img src={ROLLING_ICON} alt="rollingIcon" />}
         </ImgLayout>
       </ImgBox>
       <SubContent>
-        <SubTitlt>
+        <SubTitle>
           {title}
           {calendar && <DDay>D-{result}</DDay>}
-        </SubTitlt>
+        </SubTitle>
         <SubNote calendar={calendar}>{note}</SubNote>
       </SubContent>
     </SubLayout>
@@ -65,7 +65,7 @@ const SubContent = styled.div`
   gap: 4px;
 `;
 
-const SubTitlt = styled.h2`
+const SubTitle = styled.h2`
   display: inline-block;
   color: ${COLORS.GRAY_900};
   display: flex;

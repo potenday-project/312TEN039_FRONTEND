@@ -1,17 +1,29 @@
+import FUBAO_PROFILE from 'src/assets/img/bao-profile.jpg';
 import { COLORS } from 'src/constants';
 import styled from 'styled-components';
 
 import { IRMessage } from './types';
 import { formatTime } from '../chat/utils';
 
-const ROtherMassage = ({ message: { message, nickName, date } }: { message: IRMessage }) => {
+const ROtherMassage = ({
+  message: { message, nickName, date },
+  sameUser,
+}: {
+  message: IRMessage;
+  sameUser: boolean;
+}) => {
   return (
     <Layout>
-      <Profile>
-        <Image src="" alt="프로필 이미지" />
-      </Profile>
+      {sameUser ? (
+        <Profile></Profile>
+      ) : (
+        <Profile>
+          <Image src={FUBAO_PROFILE} alt="프로필 이미지" />
+        </Profile>
+      )}
+
       <MessageLayout>
-        <NicKNmae>{nickName}</NicKNmae>
+        {!sameUser && <NicKNmae>{nickName}</NicKNmae>}
         <Message>{message}</Message>
       </MessageLayout>
       <Time>{formatTime(date)}</Time>
@@ -30,7 +42,6 @@ const Layout = styled.div`
 const Profile = styled.div`
   width: 34px;
   height: 34px;
-  background-color: ${COLORS.GRAY_500};
   border-radius: 50%;
 `;
 
