@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import CALLBACK_IMG from 'src/assets/img/callback_img.svg';
 import { COLORS, ROUTES } from 'src/constants';
-import { kakaoLogin } from 'src/features/auth/service';
-import { IAuthStore, authStore } from 'src/features/auth/store';
+// import { kakaoLogin } from 'src/features/auth/service';
+import { authStore } from 'src/features/auth/store';
 import { styled } from 'styled-components';
 
 const CallbackKakao = () => {
@@ -21,15 +21,29 @@ const CallbackKakao = () => {
   axios.get('/api/calendar/dday').then(res => {
     console.log(res);
   });
+  axios
+    .post('/api/oauth/authorize', {
+      authorizationCode: code,
+    })
+    .then(res => {
+      console.log(res);
+    });
 
   useEffect(() => {
     if (code) {
-      kakaoLogin(code).then((res: unknown) => {
-        res &&
-          setAuthState({
-            ...(res as IAuthStore),
-          });
-      });
+      axios
+        .post('/api/oauth/authorize', {
+          authorizationCode: code,
+        })
+        .then(res => {
+          console.log(res);
+        });
+      // kakaoLogin(code).then((res: unknown) => {
+      //   res &&
+      //     setAuthState({
+      //       ...(res as IAuthStore),
+      //     });
+      // });
     }
   }, [authState, code, setAuthState]);
 
