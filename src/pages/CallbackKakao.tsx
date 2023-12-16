@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
 
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import CALLBACK_IMG from 'src/assets/img/callback_img.svg';
 import { COLORS, ROUTES } from 'src/constants';
-// import { kakaoLogin } from 'src/features/auth/service';
-import { authStore } from 'src/features/auth/store';
+import { kakaoLogin } from 'src/features/auth/service';
+import { IAuthStore, authStore } from 'src/features/auth/store';
 import { styled } from 'styled-components';
 
 const CallbackKakao = () => {
@@ -18,17 +17,6 @@ const CallbackKakao = () => {
     navigate(ROUTES.MAIN);
   };
 
-  axios.get('/api/calendar/dday').then(res => {
-    console.log(res);
-  });
-  axios
-    .post('/api/oauth/authorize', {
-      authorizationCode: code,
-    })
-    .then(res => {
-      console.log(res);
-    });
-
   useEffect(() => {
     if (code) {
       kakaoLogin(code).then(res => {
@@ -37,7 +25,6 @@ const CallbackKakao = () => {
             ...(res as unknown as IAuthStore),
           });
       });
-
     }
   }, [code, setAuthState]);
 
