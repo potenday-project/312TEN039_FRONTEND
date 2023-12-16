@@ -1,4 +1,3 @@
-// import { COLORS } from 'src/constants';
 import { useEffect, useState } from 'react';
 
 import axios, { AxiosResponse } from 'axios';

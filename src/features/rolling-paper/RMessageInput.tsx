@@ -1,17 +1,21 @@
 import { useState } from 'react';
 
+import axios, { AxiosResponse } from 'axios';
+// import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { useSetRecoilState } from 'recoil';
 import SEND_ICON from 'src/assets/icon/send.svg';
-import { COLORS } from 'src/constants';
+import { COLORS, URLS } from 'src/constants';
 import styled from 'styled-components';
 
-import { rollingPaperStore } from './store';
+import { IWriteAMessage, rollingPaperStore } from './store';
+// import { IAuthStore, authStore } from '../auth/store';
 
 interface IProps {
   setInputState: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const RMessageInput = ({ setInputState }: IProps) => {
+  // const { memberId } = useRecoilValue<IAuthStore>(authStore);
   const [message, setMessage] = useState('');
   const setRollingPaperState = useSetRecoilState(rollingPaperStore);
   const maxMessageLength = 100;
@@ -30,6 +34,21 @@ const RMessageInput = ({ setInputState }: IProps) => {
     if (message === '') {
       return;
     }
+
+    axios
+      // .post(`${URLS.ROLLING_PAPER}/${memberId}`, {
+      //   message,
+      // })
+      .post(`${URLS.ROLLING_PAPER}/1`, {
+        message,
+      })
+      .then(function (response: AxiosResponse<IWriteAMessage>) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error.response);
+      });
+
     setRollingPaperState(prev => ({
       ...prev,
       messages: [...prev.messages, { sender: 'user', message, date: Date(), nickName: '닉네임' }],
