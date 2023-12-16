@@ -7,6 +7,14 @@ interface IRollingPaperStore {
   loading: boolean;
 }
 
+export interface IWriteAMessage {
+  data: {
+    randomName: string;
+    rollingPaperId: number;
+  };
+  msg: string;
+}
+
 export const rollingPaperStore = atom<IRollingPaperStore>({
   key: 'rollingPaperStore',
   default: {
