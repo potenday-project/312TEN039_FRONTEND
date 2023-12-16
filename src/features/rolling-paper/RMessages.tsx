@@ -40,10 +40,10 @@ const RMessages = () => {
       <MassagesLayout ref={messagesContainerRef}>
         {!rollingPaperState.loading && <InfinityContainer ref={infiniteContainerRef} />}
         {rollingPaperState.messages.map((message, index: number) => {
-          if (message.sender === 'user') {
+          if (message.memberId === 1) {
             return <RUserMassage message={message} key={index} />;
           }
-          if (index !== 0 && rollingPaperState.messages[index - 1].sender === message.sender) {
+          if (index !== 0 && rollingPaperState.messages[index - 1].memberId === message.memberId) {
             return <ROtherMassage message={message} key={index} sameUser={true} />;
           }
           return <ROtherMassage message={message} key={index} sameUser={false} />;
