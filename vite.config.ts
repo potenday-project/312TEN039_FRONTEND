@@ -18,5 +18,8 @@ export default defineConfig(({ mode }) => {
       },
       port: 3000,
     },
+    preview: {
+      port: 3000,
+    },
   };
 });
