@@ -1,4 +1,4 @@
-import FUBAO_PROFILE from 'src/assets/img/bao-profile.jpg';
+import USER_PROFILE from 'src/assets/img/user-profile.jpg';
 import { COLORS } from 'src/constants';
 import styled from 'styled-components';
 
@@ -18,7 +18,7 @@ const ROtherMassage = ({
         <Profile></Profile>
       ) : (
         <Profile>
-          <Image src={FUBAO_PROFILE} alt="프로필 이미지" />
+          <Image src={USER_PROFILE} alt="프로필 이미지" />
         </Profile>
       )}
 
