@@ -1,14 +1,18 @@
 import { useState } from 'react';
 
-import { useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import SEND_ICON from 'src/assets/icon/send.svg';
 import { COLORS } from 'src/constants';
 import { styled } from 'styled-components';
 
+import { postMessage } from './service';
 import { chatStore } from './store';
+import { formatTime } from './utils';
+import { authStore } from '../auth/store';
 
 const MessageInput = () => {
   const [message, setMessage] = useState('');
+  const { memberId } = useRecoilValue(authStore);
   const setChatState = useSetRecoilState(chatStore);
   const maxMessageLength = 300;
 
@@ -26,14 +30,29 @@ const MessageInput = () => {
     if (message === '') {
       return;
     }
-    setChatState(prev => ({ ...prev, messages: [...prev.messages, { sender: 'user', message, date: Date() }] }));
+
+    setChatState(prev => ({
+      ...prev,
+      messages: [...prev.messages, { role: 'user', message, chatTime: formatTime(Date()), lastChatId: 0 }],
+    }));
+
     setChatState(prev => ({ ...prev, loading: true }));
-    const response = {
-      sender: '푸바오',
-      message: '나랑 놀아줘!',
-      date: Date(),
-    };
-    setChatState(prev => ({ ...prev, messages: [...prev.messages, response] }));
+    console.log(memberId);
+    postMessage(1, message).then(res => {
+      if (!res) {
+        return;
+      }
+      const newMessages = Array.from({ length: res.assiChatTime.length }, (_, index) => {
+        return {
+          chatTime: res.assiChatTime[index],
+          message: res.messageResponse[index],
+          role: 'assistant',
+          lastChatId: res?.savedAssiChatId[index],
+        };
+      });
+      setChatState(prev => ({ ...prev, messages: [...prev.messages, ...newMessages] }));
+    });
+
     setChatState(prev => ({ ...prev, loading: false }));
     setMessage('');
   };

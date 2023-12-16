@@ -1,20 +1,23 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { Spinner } from 'src/common/ui';
 import { COLORS } from 'src/constants';
 import { styled } from 'styled-components';
 
 import BaoMessage from './BaoMessage';
+import { getMessageList } from './service';
 import { chatStore } from './store';
 import UserMessage from './UserMessage';
 import useObserver from '../../common/useObserver';
+import { authStore } from '../auth/store';
 
 const Messages = () => {
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const [scrollHeight, setScrollHeight] = useState(0);
   const infiniteContainerRef = useObserver(() => moreDataHandler());
-  const chatState = useRecoilValue(chatStore);
+  const [chatState, setChatState] = useRecoilState(chatStore);
+  const { memberId } = useRecoilValue(authStore);
 
   const moreDataHandler = () => {
     console.log('moreDataHandler');
@@ -37,13 +40,30 @@ const Messages = () => {
     }
   }, [chatState.messages, scrollHeight]);
 
+  useEffect(() => {
+    setChatState(prev => ({ ...prev, loading: true }));
+    console.log(memberId);
+    getMessageList(1, 26).then(res => {
+      if (!res) {
+        return;
+      }
+      setChatState(prev => ({
+        ...prev,
+        messages: res.contents.slice().reverse(),
+        totalElements: res.totalElements,
+        nextCursor: res.nextCursor,
+      }));
+    });
+    setChatState(prev => ({ ...prev, loading: false }));
+  }, [memberId, setChatState]);
+
   return (
     <Layout>
       <Spinner loading={chatState.loading} />
       <MassagesLayout ref={messagesContainerRef}>
         {!chatState.loading && <InfinityContainer ref={infiniteContainerRef} />}
         {chatState.messages.map((message, index: number) => {
-          if (message.sender === '푸바오') {
+          if (message.role === 'assistant') {
             return <BaoMessage message={message} key={index} />;
           }
           return <UserMessage message={message} key={index} />;

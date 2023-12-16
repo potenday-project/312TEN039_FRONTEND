@@ -19,14 +19,14 @@ const CallbackKakao = () => {
 
   useEffect(() => {
     if (code) {
-      kakaoLogin(code).then((res: unknown) => {
+      kakaoLogin(code).then(res => {
         res &&
           setAuthState({
-            ...(res as IAuthStore),
+            ...(res as unknown as IAuthStore),
           });
       });
     }
-  }, [authState, code, setAuthState]);
+  }, [code, setAuthState]);
 
   return (
     <Layout>
