@@ -1,5 +1,12 @@
+// export interface IMessage {
+//   sender: string;
+//   message: string;
+//   date: string;
+// }
+
 export interface IMessage {
-  sender: string;
+  role: string;
   message: string;
-  date: string;
+  chatTime: string;
+  lastChatId: number;
 }
