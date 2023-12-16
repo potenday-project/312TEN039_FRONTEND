@@ -1,9 +1,9 @@
 import { COLORS } from 'src/constants';
 import styled from 'styled-components';
 
-import { IRMessage } from './types';
+import { IListValues } from './types';
 
-const RUserMassage = ({ message: { content } }: { message: IRMessage }) => {
+const RUserMassage = ({ message: { content } }: { message: IListValues }) => {
   return (
     <Layout>
       <Message>{content}</Message>

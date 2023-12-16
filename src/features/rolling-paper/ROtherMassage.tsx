@@ -2,9 +2,9 @@ import USER_PROFILE from 'src/assets/img/user-profile.jpg';
 import { COLORS } from 'src/constants';
 import styled from 'styled-components';
 
-import { IRMessage } from './types';
+import { IListValues } from './types';
 
-const ROtherMassage = ({ message: { content, randomName }, sameUser }: { message: IRMessage; sameUser: boolean }) => {
+const ROtherMassage = ({ message: { content, randomName }, sameUser }: { message: IListValues; sameUser: boolean }) => {
   return (
     <Layout>
       {sameUser ? (
