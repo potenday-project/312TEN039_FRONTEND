@@ -12,6 +12,7 @@ export const URLS = {
   CHAT_RECENT: '/api/chat/message',
   CALENDAR: '/api/calendar/dday',
   ROLLING_PAPER: '/api/paper',
+  ROLLING_PAPER_LAST: '/api/paper/last',
   ROLLING_PAPER_LIST: '/api/paper/list',
   MEMBER: '/api/member/dday',
 } as const;
