@@ -35,7 +35,7 @@ export const authStore = atom<IAuthStore>({
     refreshToken: '',
     grantType: '',
     memberId: 1,
-    randomName: '',
+    randomName: '푸덕이 짱짱',
   },
   // effects_UNSTABLE: [persistAtom],
   effects: [localStorageEffect<IAuthStore>('authStore')],
