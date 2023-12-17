@@ -53,7 +53,7 @@ const Messages = () => {
       messagesContainerRef.current.scrollTop = scrollTop;
       setScrollHeight(0);
     }
-    messagesContainerRef.current.scrollHeight - messagesContainerRef.current.clientHeight;
+    messagesContainerRef.current.scrollTop = messagesContainerRef.current.clientHeight;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chatState.messages.length]);
 

@@ -35,19 +35,17 @@ const ChatBox = () => {
         <div>워토우 더 먹고싶다바오</div>
       </StateMessage>
 
-      <MessageBox onClick={moveChat}>
-        {recentMessage ? (
-          <>
-            <Newly>최근 메시지</Newly>
-            <MessagePhrases>{recentMessage}</MessagePhrases>
-          </>
-        ) : (
-          <>
-            <EarlyMessage>푸바오와 채팅을 시작해 보세요!</EarlyMessage>
-            <EarlyButton>시작하기</EarlyButton>
-          </>
-        )}
-      </MessageBox>
+      {recentMessage ? (
+        <MessageBox2 onClick={moveChat}>
+          <Newly>최근 메시지</Newly>
+          <MessagePhrases>{recentMessage}</MessagePhrases>
+        </MessageBox2>
+      ) : (
+        <MessageBox>
+          <EarlyMessage>푸바오와 채팅을 시작해 보세요!</EarlyMessage>
+          <EarlyButton>시작하기</EarlyButton>
+        </MessageBox>
+      )}
     </ChatBoxLayout>
   );
 };
@@ -122,6 +120,21 @@ const MessageBox = styled.div`
     background-color: #cce6aa;
   }
 `;
+const MessageBox2 = styled.div`
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  height: 61px;
+  padding: 12px 12.5px;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 37px;
+  background-color: ${COLORS.PRIMARY_100};
+
+  &:hover {
+    background-color: #cce6aa;
+  }
+`;
 
 const Newly = styled.span`
   font-size: 15px;
@@ -146,6 +159,7 @@ const MessagePhrases = styled.div`
   text-overflow: ellipsis;
   white-space: pre;
   cursor: pointer;
+  font-size: 15px;
 `;
 
 const EarlyButton = styled.div`
