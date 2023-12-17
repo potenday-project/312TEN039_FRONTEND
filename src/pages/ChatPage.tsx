@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { COLORS } from 'src/constants';
+import PREV_ICON from 'src/assets/icon/prev.svg';
+import { COLORS, ROUTES } from 'src/constants';
 import { MessageInput, Messages } from 'src/features/chat';
 import { styled } from 'styled-components';
 
@@ -7,28 +8,39 @@ function ChatPage() {
   const navigate = useNavigate();
 
   const moveBackPage = () => {
-    navigate(-1);
+    navigate(ROUTES.MAIN);
   };
 
   return (
-    <div>
+    <Layout>
       <PageHeader>
-        <BackButton onClick={moveBackPage}>뒤</BackButton>
+        <BackButton onClick={moveBackPage}>
+          <img src={PREV_ICON} alt="prev_icon" />
+        </BackButton>
         <Title>푸바오와 채팅</Title>
-        <Profile>
-          <Image src="" alt="profile_img" />
-          <StateBox></StateBox>
-        </Profile>
       </PageHeader>
       <PageBody>
         <Messages />
         <MessageInput />
       </PageBody>
-    </div>
+    </Layout>
   );
 }
 
 export default ChatPage;
+
+const Layout = styled.div`
+  background-color: ${COLORS.PRIMARY_50};
+  overflow: hidden;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  -webkit-scrollbar {
+    display: none;
+    width: 0; /* Remove scrollbar space */
+    height: 0;
+    background: transparent; /* Optional: just make scrollbar invisible */
+  }
+`;
 
 const PageHeader = styled.div`
   display: flex;
@@ -37,7 +49,7 @@ const PageHeader = styled.div`
   align-items: center;
   padding: 0.6rem 1.2rem;
   width: 100%;
-  height: 44px;
+  height: 58px;
 `;
 
 const BackButton = styled.div`
@@ -50,37 +62,12 @@ const BackButton = styled.div`
   cursor: pointer;
 `;
 
-const Title = styled.div``;
-
-const Profile = styled.div`
-  position: absolute;
-  right: 1.2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background-color: ${COLORS.GRAY_500};
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-`;
-
-const StateBox = styled.div`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: green;
+const Title = styled.div`
+  font-weight: 600;
+  color: ${COLORS.GRAY_900};
 `;
 
 const PageBody = styled.div`
   position: relative;
-  height: calc(100vh - 44px);
+  height: calc(var(--vh, 1vh) * 100 - 58px);
 `;

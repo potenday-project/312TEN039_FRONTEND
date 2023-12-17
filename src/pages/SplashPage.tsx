@@ -1,3 +1,5 @@
+import KAKAO_ICON from 'src/assets/icon/kakao.svg';
+import SPLASH_IMG from 'src/assets/img/splash_img.svg';
 import { COLORS, KAKAO_LOGIN_URL } from 'src/constants';
 import { styled } from 'styled-components';
 
@@ -10,14 +12,14 @@ const SplashPage = () => {
     <Layout>
       <MainContainer>
         <MainImageWrapper>
-          <Image src="" alt="profile_img" />
+          <Image src={SPLASH_IMG} alt="profile_img" />
         </MainImageWrapper>
-        <div>바오,봐요</div>
+        {/* <MainTexts>바오,봐요</MainTexts> */}
       </MainContainer>
       <BottomButtonWrapper>
         <KakaoButton onClick={onClickKakaoLogin}>
           <ImageWrapper>
-            <img src="/images/kakao_login.png" alt="kakao_login" />
+            <img src={KAKAO_ICON} alt="kakao_login" />
           </ImageWrapper>
           카카오로 시작하기
         </KakaoButton>
@@ -31,14 +33,15 @@ export default SplashPage;
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  position: relative;
+  background-color: ${COLORS.PRIMARY_100};
 `;
 
 const MainContainer = styled.div`
   position: absolute;
-  top: 18rem;
+  top: 45%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,17 +56,32 @@ const MainImageWrapper = styled.div`
 `;
 
 const Image = styled.img`
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background-color: ${COLORS.GRAY_400};
+  width: 12rem;
+  /* height: 150px; */
+  /* border-radius: 50%; */
 `;
+
+// const MainTexts = styled.div`
+//   position: absolute;
+//   top: 180px;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 1rem;
+//   color: #6cbd04;
+//   font-family: AndongKaturi;
+//   font-size: 36.632px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: normal;
+// `;
 
 const BottomButtonWrapper = styled.div`
   position: absolute;
   margin: 0.6rem 1.2rem 2.4rem 1.2rem;
   bottom: 0;
   width: calc(100% - 2.4rem);
+  font-size: 17px;
+  font-weight: 600;
 `;
 
 const KakaoButton = styled.div`
